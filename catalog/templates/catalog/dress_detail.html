@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ dress.title }}</h1>
+
+  <p><strong>Guest:</strong> <a href="">{{ dress.guest }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Summary:</strong> {{ dress.summary }}</p>
+  <p><strong>Price:</strong> {{ dress.price }}</p> 
+  <p><strong>Language:</strong> {{ dress.language }}</p>  
+  <p><strong>Brand:</strong> {% for brand in dress.brand.all %} {{ brand }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Size</h4>
+
+    {% for size in dress.dressinstance_set.all %}
+    <hr>
+    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+    {% if copy.status != 'a' %}<p><strong>Due to be returned:</strong> {{copy.due_back}}</p>{% endif %}
+    <p><strong>Size:</strong> {{copy.size}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    {% endfor %}
+  </div>
+{% endblock %}

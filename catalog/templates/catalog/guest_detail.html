@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %} 
+
+{% block content %} 
+<h1>Guest: {{ guest.last_name }} </h1> 
+
+<div style="margin-left:20px;margin-top:20px"> 
+<p><strong>First_name:</strong> {{ guest.first_name }}</p> 
+<p><strong>Last_name:</strong> {{ guest.last_name }}</p> 
+<p><strong>Order_date:</strong> {{ guest.order_date }}</p> 
+<p><strong>Availability_date:</strong> {{ guest.availability_date }}</p> 
+</div> 
+{% endblock %}

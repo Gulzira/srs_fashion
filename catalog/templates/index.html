@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="chopi"  style="background-color:Cyan">
+<div class="chopi"  style="background-color:OrangeRed">
+<h1><em>Fashion home "Chopi"</em></h1>
+</div>
+  <p><em>Добро пожаловать в электронный сайт  дом моды "Chopi"!</em></p>
+
+<h2>Я не создаю одежду, я создаю мечту...</h2>
+
+
+  <p>Список всех заказов,коллекции и гостей:</p>
+  <ul>
+    <li><strong>Dress:</strong> {{ num_dress }}</li>
+    <li><strong>Size:</strong> {{ num_instances }}</li>
+    <li><strong>Dress season:</strong> {{ num_instances_season }}</li>
+    <li><strong>Guest:</strong> {{ num_guest }}</li>
+	</ul>
+</div>
+{% endblock %}

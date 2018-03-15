@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %} 
+
+{% block content %} 
+<h1>Guests</h1> 
+
+{% if guests %} 
+<ul> 
+
+{% for guest in guests %} 
+<li> 
+<a href="{{ guest.get_absolute_url }}">{{guest.last_name}},({{guest.Availability_date}})</a> 
+</li> 
+{% endfor %} 
+
+</ul> 
+{% else %} 
+
+{% endif %} 
+{% endblock %}
