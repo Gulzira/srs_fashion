@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'localibrary.urls'
+ROOT_URLCONF = 'fashion.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'localibrary.wsgi.application'
+WSGI_APPLICATION = 'fashion.wsgi.application'
 
 
 # Database
