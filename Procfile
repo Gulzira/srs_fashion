@@ -1,1 +1,1 @@
-web: gunicorn localibrary.wsgi --log-file -
+web: gunicorn fashion.wsgi --log-file -
