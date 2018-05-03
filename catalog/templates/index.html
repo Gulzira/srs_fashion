@@ -1,21 +1,49 @@
 {% extends "base_generic.html" %}
+{% load static %}
 
 {% block content %}
-<div class="chopi"  style="background-color:Cyan">
-<div class="chopi"  style="background-color:OrangeRed">
-<h1><em>Fashion home "Chopi"</em></h1>
+<div class="chopi"  style="background:url({%static 'images/aaa.jpg' %}); ">
+<div class="chopi"  style="background:url({%static 'images/nnn.jpg' %}); ">
 </div>
-  <p><em>Добро пожаловать в электронный сайт  дом моды "Chopi"!</em></p>
-
-<h2>Я не создаю одежду, я создаю мечту...</h2>
-
-
-  <p>Список всех заказов,коллекции и гостей:</p>
+ <style>
+   .text {
+    text-align:  center;
+   }
+   @font-face {
+    font-family: Pompadur; /* Гарнитура шрифта */
+    src: url(fonts/pompadur.ttf); /* Путь к файлу со шрифтом */
+   }
+   h1 {
+    font-family: Pompadur, 'Comic Sans MS', cursive;
+   }
+  </style>
+<body>
+<p align="center"> <img src="{%static "images/456.png" alt="photo" %}"/></p>
+<div class="text">
+<h1><em>"Chopi" сән үйі</em></h1>
+     <h2><em>"Chopi" сән үйінің электронды парақшасына қош келдіңіз!</em></h2>
+	 <h2><em>Cән - күрделі ойларды әдемі жеткізу жолы ...</em></h2>
+  </div>
+ </body>
+ <p>Коллекциялар мен тапсырыстар тізімі:</p>
   <ul>
-    <li><strong>Dress:</strong> {{ num_dress }}</li>
-    <li><strong>Size:</strong> {{ num_instances }}</li>
-    <li><strong>Dress season:</strong> {{ num_instances_season }}</li>
-    <li><strong>Guest:</strong> {{ num_guest }}</li>
+    <li><strong>Көйлектер:</strong> {{ num_dress }}</li>
+    <li><strong>Өлшемдер:</strong> {{ num_instances }}</li>
+    <li><strong>Мезгілдік коллекциялар:</strong> {{ num_instances_season }}</li>
+    <li><strong>Тұтынушылар:</strong> {{ num_guest }}</li>
 	</ul>
+	<body>
+<p align="center"> <img src="{%static "images/ooo.jpg" alt="photo" %}">
+<img src="{%static "images/ttt.jpg" alt="photo" %}">
+<img src="{%static "images/www.jpg" alt="photo" %}">
+</p>
+ <p>Мекен-жайымыз:</p>
+  <ul>
+    <li><strong>Алматы қаласы,Байзакова 312</strong></li>
+    <li><strong>Байланыс телефондары:8-747-619-05-04</strong></li>
+	</ul>
+
+
+</body>
 </div>
 {% endblock %}

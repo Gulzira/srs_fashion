@@ -11,8 +11,15 @@ def index(request):
     # Available dress (status = 'a')
     num_instances_season=DressInstance.objects.filter(status__exact='a').count()
     num_guest=Guest.objects.count()  # The 'all()' is implied by default.
-    
-    # Render the HTML template index.html with the data in the context variable
+	
+
+   # Number of visits to this view, as counted in the session variable.
+    num_visits=request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits+1
+	
+	
+	
+   # Render the HTML template index.html with the data in the context variable
     return render(
         request,
         'index.html',

@@ -3,10 +3,10 @@
 {% block content %}
     <h1>Dress collection</h1>
 
-    {% if dress_collection %}
+    {% if dress %}
     <ul>
 
-      {% for dress in dress_collection %}
+      {% for dress in dress %}
       <li>
         <a href="{{ dress.get_absolute_url }}">{{ dress.title }}</a> ({{dress.guest}})
       </li>

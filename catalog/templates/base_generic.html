@@ -13,7 +13,11 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-
+<style>
+body{
+  background:url({%static 'images/hhh.jpg' %});
+}
+</style>
 <body
 <div class="chopi"  style="background-color:LightCyan">
 
@@ -24,11 +28,32 @@
       <div class="col-sm-2">
       {% block sidebar %}
       <ul class="sidebar-nav">
-	  <div class="chopi"  style="background-color:LightPink">
-          <li><a href="{% url 'index' %}">Home</a></li>
-		  <li><a href="{% url 'Dresss' %}">All collections</a></li>
-          <li><a href="{% url 'Guests' %}">Guests</a></li>
-		  <li><a href="">Contacts</a></li>
+	  <div class="chopi"  style="background:url({%static 'images/aaa.jpg' %}); ">
+          <li><em><a href="{% url 'index' %}">Басты бет</a></em></li>
+		  <li><em><a href="{% url 'Dresss' %}">Коллекциялар жиыны</a></em></li>
+          <li><em><a href="{% url 'Guests' %}">Тұтынушылар</a></em></li>
+		  <li><em><a href="">Байланыс</a></em></li>
+		  
+	  <ul class="sidebar-nav">
+
+    ...
+		{% if user.is_authenticated %}
+     <li>User: {{ user.get_username }}</li>
+     <li><em><a href="{% url 'logout'%}?next={{request.path}}">Шығу</a></em></li>   
+   {% else %}
+     <li><em><a href="{% url 'login'%}?next={{request.path}}">Тіркелу</a></em></li>   
+   {% endif %} 
+  </ul>
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+<p>Бүгін:{% if weekday == 0 %} Дүйсенбі{% endif %}
+{% if weekday == 1 %} Сейсенбі{% endif %}
+{% if weekday == 2 %} Сарсенбі{% endif %}
+{% if weekday == 3 %} Бейсенбі{% endif %}
+{% if weekday == 4 %} Жұма{% endif %}
+{% if weekday == 5 %} Сенбі{% endif %}
+{% if weekday == 6 %} Жексенбі{% endif %}.</p>
+<p>Бүгін: {% if day < 10 %}0{{ day }}{% else %}{{ day }}{% endif %}.{% if month < 10 %}0{{ month }}{% else %}{{ month }}{% endif %}.{% if year < 10 %}0{{ year }}{% else %}{{ year }}{% endif %}</p>
+<p>Қазір сағат: {% if hour < 10 %}0{{ hour }}{% else %}{{ hour }}{% endif %}:{% if minute < 10 %}0{{ minute }}{% else %}{{ minute }}{% endif %}:{% if second < 10 %}0{{ second }}{% else %}{{ second }}{% endif %}</p>
 		  </div>
      {% endblock %}
       </div>
@@ -49,6 +74,7 @@
               {% endif %}
           </span>
       </div>
+
   {% endif %}
 {% endblock %} 
       </div>
